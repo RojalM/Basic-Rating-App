@@ -74,3 +74,36 @@ public class DBFacade2 implements IUUser, IUrser {
             return false;
         }
     }
+
+    /**
+     * inserting User into the Database
+     *
+     *
+     */
+    public void register (String username, String email, int age) throws SQLException {
+
+        // Declare SQL query to insert User.
+        String sqlInsert = "INSERT INTO userdatabase (username, email, age) VALUES (?,?,?)";
+
+        // Insert User into database.
+        try (Connection connection = DriverManager
+                .getConnection(
+                        "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
+                                + Configuration.getPort() + "/" + Configuration.getDatabase(),
+                        Configuration.getUser(), Configuration.getPassword())) {
+
+            try (PreparedStatement ps = connection.prepareStatement(sqlInsert)){
+                ps.setString(1, username);
+                ps.setString(2, email);
+                ps.setInt(3, age);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+
+            }
+        }
+    }
