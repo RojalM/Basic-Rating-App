@@ -194,3 +194,26 @@ public class DBFacade2 implements IUUser, IUrser {
             return false;
         }
     }
+    public void addingMovie1(String title, String director, Timestamp release, String actor) {
+
+        // Declare SQL query to insert movie.
+        String sqlInsert = "INSERT INTO moviedatabase (titel, Ver�ffentlichungsdatum, Direktor,  Hauptdarsteller) VALUES (?,?,?,?)";
+        // Insert movie into database.
+        try (Connection connection = DriverManager
+                .getConnection(
+                        "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
+                                + Configuration.getPort() + "/" + Configuration.getDatabase(),
+                        Configuration.getUser(), Configuration.getPassword())) {
+            try (PreparedStatement ps = connection.prepareStatement(sqlInsert)) {
+                ps.setString(1, title);
+                ps.setTimestamp(2, release);
+                ps.setString(3, director);
+                ps.setString(4, actor);
+                ps.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
