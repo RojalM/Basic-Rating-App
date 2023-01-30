@@ -27,5 +27,8 @@ Clone this repo to your desktop and run requirement.txt install to install all t
 If you would like to contribute to this project, please start by opening the files. After reading the code, fork the repository,
 create a new branch in your fork, make your changes, and submit a pull request.
 
+# Todo List
+check the Todo-List and see what can be also added to the project.
+
 
 
