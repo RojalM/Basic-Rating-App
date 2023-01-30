@@ -28,7 +28,7 @@ If you would like to contribute to this project, please start by opening the fil
 create a new branch in your fork, make your changes, and submit a pull request.
 
 # Todo List
-check the Todo-List and see what can be also added to the project.
+check the [README](README.md). and see what can be also added to the project.
 
 
 
