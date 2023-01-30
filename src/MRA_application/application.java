@@ -22,6 +22,21 @@ public class application implements UCmds {
 		}
 		return instance;
 		}
+	public Object addingMovie;
+
+	public boolean checkingUser(String username, String email) {
+
+		// Parse inputs to correct datatypes
+		try {
+			return DBFacade2.getInstance().checkUser(username, email);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+
+
 	public ArrayList<Movie> getMovieList() {
 			ArrayList<Movie> result = null;
 		
