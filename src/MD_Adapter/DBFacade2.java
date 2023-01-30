@@ -217,3 +217,40 @@ public class DBFacade2 implements IUUser, IUrser {
             e.printStackTrace();
         }
     }
+    public ArrayList<Movie> get_Movielist() {
+        ArrayList<Movie> result = new ArrayList<Movie>();
+
+        // Declare the necessary SQL queries.
+        String queryMovieList = "Select m.*, r.rating, r.Comment from MovieDataBase m, ratings r where m.Titel = r.Movie";
+
+
+        // Query all offers that fits to the given criteria.
+        try (Connection connection = DriverManager
+                .getConnection(
+                        "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
+                                + Configuration.getPort() + "/" + Configuration.getDatabase(),
+                        Configuration.getUser(), Configuration.getPassword())) {
+
+            try (PreparedStatement ps = connection.prepareStatement(queryMovieList);) {
+                try (ResultSet rs = ps.executeQuery()) {
+                    //ArrayList<Movie> movieList = new ArrayList<Movie>();
+                    while (rs.next()) {
+                        result.add( new Movie(rs.getString(1), rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5), rs.getString(6)));
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
+    }
+
+}
