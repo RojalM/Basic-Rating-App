@@ -20,7 +20,7 @@ Features:
 # Setup
 Clone this repo to your desktop and run requirement.txt install to install all the dependencies.
 
-# Contributors
+# Contributors ❤️
   - @soheilrst (front- backend and DB) 
 
 # new contribution?
