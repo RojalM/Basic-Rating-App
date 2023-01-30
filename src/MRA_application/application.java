@@ -44,6 +44,17 @@ public class application implements UCmds {
 		}
 	}
 
+	public boolean checkingMovie(String Movie) {
+
+		// Parse inputs to correct datatypes
+		try {
+			return DBFacade2.getInstance().checkMovie(Movie);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 
 
 
