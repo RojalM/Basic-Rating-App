@@ -21,6 +21,11 @@ Features:
 Clone this repo to your desktop and run requirement.txt install to install all the dependencies.
 
 # Contributors
+  - @soheilrst (front- backend and DB) 
+
+# new contribution?
 If you would like to contribute to this project, please start by opening the files. After reading the code, fork the repository,
 create a new branch in your fork, make your changes, and submit a pull request.
+
+
 
