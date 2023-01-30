@@ -175,3 +175,22 @@ public class DBFacade2 implements IUUser, IUrser {
             return false;
         }
     }
+    public boolean checkTitle(String title) {
+        String QueryTitle = "select * from Moviedatabase where titel = ?";
+
+        try (Connection connection = DriverManager
+                .getConnection(
+                        "jdbc:" + Configuration.getType() + "://" + Configuration.getServer() + ":"
+                                + Configuration.getPort() + "/" + Configuration.getDatabase(),
+                        Configuration.getUser(), Configuration.getPassword())) {
+            try (PreparedStatement psSelect = connection.prepareStatement(QueryTitle)) {
+                psSelect.setString(1, title);
+                try (ResultSet rs = psSelect.executeQuery()) {
+                    return rs.next();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
