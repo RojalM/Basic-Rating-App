@@ -35,6 +35,16 @@ public class application implements UCmds {
 		}
 	}
 
+	public void register(String username, String email, String age) {
+		try {
+			int ageSQL = Integer.parseInt(age);
+			DBFacade2.getInstance().register(username, email, ageSQL);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+
 
 
 	public ArrayList<Movie> getMovieList() {
