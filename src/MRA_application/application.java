@@ -73,6 +73,16 @@ public class application implements UCmds {
 			return false;
 		}
 	}
+	public boolean checkingTitle(String title) {
+
+		// Parse inputs to correct datatypes
+		try {
+			return DBFacade2.getInstance().checkTitle(title);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 
 
