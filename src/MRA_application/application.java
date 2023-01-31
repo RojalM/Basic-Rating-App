@@ -63,6 +63,17 @@ public class application implements UCmds {
 		}
 	}
 
+	public boolean checkingRating(String Movie, String Username) {
+
+		// Parse inputs to correct datatypes
+		try {
+			return DBFacade2.getInstance().checkRating(Movie, Username);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 
 
 	public ArrayList<Movie> getMovieList() {
