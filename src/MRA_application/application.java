@@ -54,6 +54,14 @@ public class application implements UCmds {
 			return false;
 		}
 	}
+	public void rate(String username, String Movie, String Rating, String comment) {
+		try {
+			int RatingSQL = Integer.parseInt(Rating);
+			DBFacade2.getInstance().rate(username, Movie, RatingSQL, comment);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 
 
