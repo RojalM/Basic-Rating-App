@@ -76,6 +76,8 @@ public class application implements UCmds {
 
 
 
+
+
 	public ArrayList<Movie> getMovieList() {
 			ArrayList<Movie> result = null;
 		
