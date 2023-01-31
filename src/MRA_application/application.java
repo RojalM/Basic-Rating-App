@@ -84,9 +84,18 @@ public class application implements UCmds {
 		}
 	}
 
+	public void addingMovie(String title, String director, String release, String actor) {
+		try {
+			DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+			Date date = dateFormat.parse(release);
+			long time = date.getTime();
+			Timestamp TimeSQL = new Timestamp(time);
+			DBFacade2.getInstance().addingMovie1(title, director, TimeSQL, actor);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
-
-
+	}
 
 	public ArrayList<Movie> getMovieList() {
 			ArrayList<Movie> result = null;
